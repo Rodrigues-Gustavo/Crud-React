@@ -17,8 +17,8 @@ import ModalComp from './components/ModalComp/ModalComp';
 
 const App = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [ data, setData] = useState([]);
-  const [ dataEdit, setDataEdit] = useState({});
+  const [ data, setData ] = useState([]);
+  const [ dataEdit, setDataEdit ] = useState({});
 
   const isMobile = useBreakpointValue({
     base: true,
@@ -30,7 +30,7 @@ const App = () => {
       ? JSON.parse(localStorage.getItem("cad_cliente"))
       : [];
 
-    setData(db_costumer)
+    setData(db_costumer);
   },[setData]);
 
   const handleRemove = (email) => {
@@ -65,7 +65,7 @@ const App = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {data.map(({ name, email}, index) => (
+              {data.map(({ name, email }, index) => (
                 <Tr key={index} cursor="pointer" _hover={{ bg: "gray.100" }}>
                   <Td maxW={isMobile ? 5 : 100} fontSize="20px">{name}</Td>
                   <Td maxW={isMobile ? 5 : 100} fontSize="20px">{email}</Td>
@@ -73,7 +73,7 @@ const App = () => {
                     <EditIcon 
                       fontSize={20}
                       onCLick={() => [
-                        setDataEdit({ name, email, index}),
+                        setDataEdit({ name, email, index }),
                         onOpen(),
                       ]}
                     />
